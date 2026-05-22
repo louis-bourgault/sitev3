@@ -1,0 +1,39 @@
+---
+    const {name, description, link, imageURL, imageAlt} = Astro.props
+---
+
+<div class="project-tile">
+    <h3>{name}</h3>
+    <div>
+
+        <img src={imageURL} alt={imageAlt}>
+    </div>
+    <p>{description}</p>
+    
+    <a href={link}>Go to Project</a>
+</div>
+
+<style>
+    .project-tile {
+        padding-left:1rem;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
+        border: 2px solid #cbc09e;
+        /* height: 20rem; */
+        border-radius: 0.5rem;
+    }
+
+    h3 {
+        color: #6a546d;
+        font-size: x-large;
+
+    }
+
+    img {
+        height: 10rem;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 0.5rem;
+    }
+</style>

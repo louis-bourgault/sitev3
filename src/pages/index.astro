@@ -1,17 +1,49 @@
 ---
-
+import Layout from "../layout.astro"
+import Project from "../components/project.astro"
 ---
+<Layout>
+	<br style="top"/>
+		<div class="maincol">
+		
+			<div class="hero">
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+				<div class="leftside">
+					<h1 class="primary">Louis Bourgault du Coudray</h1>
+					<p>High school student, hacker, and various other things</p>
+				</div>
+				<div class="rightside">
+					<img src="/me.jpeg" id="me" alt="A photo of me">
+				</div>
+			</div>
+				<section>
+				<h2>Code and Hardware</h2>
+				<div class="projects">
+					<Project name="hello" description="something cool" imageURL="https://picsum.photos/200" imageAlt="An image"></Project>
+					<Project name="hello" description="something cool" imageURL="https://picsum.photos/200" imageAlt="An image"></Project>
+					<Project name="hello" description="something cool" imageURL="https://picsum.photos/200" imageAlt="An image"></Project>
+					<Project name="hello" description="something cool" imageURL="https://picsum.photos/200" imageAlt="An image"></Project>
+					<Project name="hello" description="something cool" imageURL="https://picsum.photos/200" imageAlt="An image"></Project>
+					<Project name="hello" description="something cool" imageURL="https://picsum.photos/200" imageAlt="An image"></Project>
+
+				</div>
+				
+			</section>
+				
+		</div>
+
+		
+
+	</Layout>
+
+<style>
+	.projects {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  		gap: 10px;
+	}
+
+	.top {
+		padding-top: 40px;
+	}
+</style>

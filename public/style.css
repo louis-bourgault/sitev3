@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #eee9da;
+    font-family: "PT Serif", serif;
+}
+
+.maincol {
+    
+    /* gap: 20px; */
+    width: 70%;
+    min-width: 400px;
+    margin: 0 auto;
+    /* padding: 20px; */
+    /* padding-top: 40px; */
+}
+
+.leftside {
+    flex: 3;
+    /* display: flex; */
+    flex-direction: column;
+}
+
+
+
+.hero {
+    display: flex;
+    flex-direction: row;
+}
+
+.rightside {
+    padding-top: 5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h1 {
+    color: #458758;
+    font-size: 5rem;
+}
+
+#me {
+    width: 300px;
+    /* object-fit: cover;
+    object-position: top; */
+    border-radius: 1rem
+}
+

@@ -1,0 +1,35 @@
+---
+    const {name, image} = Astro.props
+---
+
+<div class="lang-tile">
+    <img src={image} alt={name}>
+    <p>{name}</h3>
+</div>
+
+<style>
+    .lang-tile {
+        display: flex;
+        align-items: center;
+        border: 2px solid #cbc09e;
+        border-radius: 1rem;
+        padding-left: 0.5rem
+    }
+
+    p {
+        color: #6a546d;
+        font-size: large;
+        align-items: center;
+
+    }
+    
+
+    img {
+        height: 2rem;
+        width: 2rem;
+        object-fit: contain;
+        object-position: center;
+        border: 2px solid #cbc09e;
+
+    }
+</style>

@@ -1,9 +1,10 @@
 ---
 import Layout from "../layout.astro"
 import Project from "../components/project.astro"
+import Language from "../components/language.astro"
 ---
 <Layout>
-	<br style="top"/>
+	<br class="top"/>
 		<div class="maincol">
 		
 			<div class="hero">
@@ -19,12 +20,15 @@ import Project from "../components/project.astro"
 				<section>
 				<h2>Code and Hardware</h2>
 				<div class="projects">
-					<Project name="hello" description="something cool" imageURL="https://picsum.photos/200" imageAlt="An image"></Project>
-					<Project name="hello" description="something cool" imageURL="https://picsum.photos/200" imageAlt="An image"></Project>
-					<Project name="hello" description="something cool" imageURL="https://picsum.photos/200" imageAlt="An image"></Project>
-					<Project name="hello" description="something cool" imageURL="https://picsum.photos/200" imageAlt="An image"></Project>
-					<Project name="hello" description="something cool" imageURL="https://picsum.photos/200" imageAlt="An image"></Project>
-					<Project name="hello" description="something cool" imageURL="https://picsum.photos/200" imageAlt="An image"></Project>
+					<Project name="ferretboard" description="A project for Hack Club Macondo, making a simple RP2040 game console with a screen and custom PCB" imageURL="https://github.com/louis-bourgault/macondo-games/raw/main/img/fusion-with-parts.png" imageAlt="The case design in Fusion 360" link="https://github.com/louis-bourgault/macondo-games"></Project>
+					<Project name="Keyboard" description="split mechanical wireless keyboard, made for Hack Club Blueprint" imageURL="https://github.com/louis-bourgault/keyboard/raw/main/img/render.png" imageAlt="Render of the project" link="https://github.com/louis-bourgault/keyboard"></Project>
+
+				</div>
+				<h2>Languages and frameworks:</h2>
+				<div class="langs">
+					<Language name="Golang" image="https://www.madebymikal.com/wp-content/uploads/2018/04/golang.png"></Language>
+					<Language name="Svelte" image="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/1280px-Svelte_Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"></Language>
+					<Language name="Astro" image="/astro.svg"></Language>
 
 				</div>
 				
@@ -32,7 +36,8 @@ import Project from "../components/project.astro"
 				
 		</div>
 
-		
+		<br class="top"/>
+
 
 	</Layout>
 
@@ -42,6 +47,12 @@ import Project from "../components/project.astro"
 		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   		gap: 10px;
 	}
+	.langs {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  		gap: 10px;
+	}
+
 
 	.top {
 		padding-top: 40px;

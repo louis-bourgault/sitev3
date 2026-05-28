@@ -6,22 +6,15 @@ body {
 }
 
 .maincol {
-    
-    /* gap: 20px; */
     width: 70%;
     min-width: 400px;
     margin: 0 auto;
-    /* padding: 20px; */
-    /* padding-top: 40px; */
 }
 
 .leftside {
     flex: 3;
-    /* display: flex; */
     flex-direction: column;
 }
-
-
 
 .hero {
     display: flex;
@@ -37,6 +30,7 @@ body {
 }
 
 h1 {
+    padding-top: 2rem;
     color: #458758;
     font-size: 5rem;
 }
@@ -46,5 +40,19 @@ h1 {
     /* object-fit: cover;
     object-position: top; */
     border-radius: 1rem
+}
+
+@media (max-width: 700px) {
+    .hero {
+        flex-direction: column-reverse;
+    }
+
+    .rightside {
+        padding-top: 1.5rem;
+        align-items: center;
+    }
+    h1 {
+        font-size: 3rem;
+    }
 }
 

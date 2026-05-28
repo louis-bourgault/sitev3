@@ -1,60 +1,140 @@
 ---
-import Layout from "../layout.astro"
-import Project from "../components/project.astro"
-import Language from "../components/language.astro"
+import Layout from "../layout.astro";
+import Project from "../components/project.astro";
+import Language from "../components/language.astro";
+import Photos from "../photos.json";
+import GithubIcon from "../components/github.astro";
 ---
+
 <Layout>
-	<br class="top"/>
-		<div class="maincol">
-		
-			<div class="hero">
+  <br class="top" />
+  <div class="maincol">
+    <div class="hero">
+      <div class="leftside">
+        <h1 class="primary">
+          Louis Bourgault du Coudray <a
+            href="https://github.com/louis-bourgault"
+          >
+            <GithubIcon />
+          </a>
+        </h1>
+        <p>High school student, hacker, and various other things</p>
+      </div>
+      <div class="rightside">
+        <img src="/me.jpeg" id="me" alt="A photo of me" />
+      </div>
+    </div>
+    <section title="code-hardware">
+      <h2>Code and Hardware</h2>
+      <div class="projects">
+        <Project
+          name="ferretboard"
+          description="A project for Hack Club Macondo, making a simple RP2040 game console with a screen and custom PCB"
+          imageURL="https://github.com/louis-bourgault/macondo-games/raw/main/img/fusion-with-parts.png"
+          imageAlt="The case design in Fusion 360"
+          link="https://github.com/louis-bourgault/macondo-games"
+        />
+        <Project
+          name="Keyboard"
+          description="split mechanical wireless keyboard, made for Hack Club Blueprint"
+          imageURL="https://github.com/louis-bourgault/keyboard/raw/main/img/render.png"
+          imageAlt="Render of the project"
+          link="https://github.com/louis-bourgault/keyboard"
+        />
+        <Project
+          name="photo-map"
+          description="a photo map platform (somewhat akin to google photos map view) but with a blogging component. hack club macondo project"
+          imageURL="https://cdn.hackclub.com/019e6e98-b084-747c-84a8-35d4ebd56de8/Screenshot%202026-05-25%20at%2021.12.42.png"
+          imageALT="two pins on a map"
+          link="https://github.com/louis-bourgault/photo-map"
+        />
+      </div>
+      <h2>Languages and frameworks:</h2>
+      <div class="langs">
+        <Language
+          name="Golang"
+          image="https://www.madebymikal.com/wp-content/uploads/2018/04/golang.png"
+        />
+        <Language
+          name="Svelte/kit"
+          image="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/1280px-Svelte_Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"
+        />
+        <Language name="Astro (this website!)" image="/astro.svg" />
+      </div>
+    </section>
+    <section title="photos">
+      <h2>Photography!</h2>
+      <div class="top-photos">
+        {
+          Photos.top.map((url, index) => (
+            <img src={url} alt={`Top photo ${index + 1}`} loading="lazy" />
+          ))
+        }
+      </div>
+      <div class="rightbuttoncontainer">
+        <a href="/photography">
+          <button id="morephotos">More Photography</button>
+        </a>
+      </div>
+    </section>
+  </div>
 
-				<div class="leftside">
-					<h1 class="primary">Louis Bourgault du Coudray</h1>
-					<p>High school student, hacker, and various other things</p>
-				</div>
-				<div class="rightside">
-					<img src="/me.jpeg" id="me" alt="A photo of me">
-				</div>
-			</div>
-				<section>
-				<h2>Code and Hardware</h2>
-				<div class="projects">
-					<Project name="ferretboard" description="A project for Hack Club Macondo, making a simple RP2040 game console with a screen and custom PCB" imageURL="https://github.com/louis-bourgault/macondo-games/raw/main/img/fusion-with-parts.png" imageAlt="The case design in Fusion 360" link="https://github.com/louis-bourgault/macondo-games"></Project>
-					<Project name="Keyboard" description="split mechanical wireless keyboard, made for Hack Club Blueprint" imageURL="https://github.com/louis-bourgault/keyboard/raw/main/img/render.png" imageAlt="Render of the project" link="https://github.com/louis-bourgault/keyboard"></Project>
-
-				</div>
-				<h2>Languages and frameworks:</h2>
-				<div class="langs">
-					<Language name="Golang" image="https://www.madebymikal.com/wp-content/uploads/2018/04/golang.png"></Language>
-					<Language name="Svelte" image="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/1280px-Svelte_Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"></Language>
-					<Language name="Astro" image="/astro.svg"></Language>
-
-				</div>
-				
-			</section>
-				
-		</div>
-
-		<br class="top"/>
-
-
-	</Layout>
+  <br class="top" />
+</Layout>
 
 <style>
-	.projects {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  		gap: 10px;
-	}
-	.langs {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  		gap: 10px;
-	}
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .langs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
 
+  .rightbuttoncontainer {
+    display: flex;
+    justify-items: right;
+  }
 
-	.top {
-		padding-top: 40px;
-	}
+  button {
+    margin-top: 0.5rem;
+    background-color: #cbc09e;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 3px;
+    color: #6a546d;
+    margin-left: auto;
+    text-size-adjust: 1.2;
+  }
+
+  .top {
+    padding-top: 40px;
+  }
+  .top-photos {
+    padding-top: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+  a {
+    text-decoration: none;
+    color: #6a546d;
+  }
+
+  .top-photos img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+  }
+
+  @media (min-width: 900px) {
+    .top-photos {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+  }
 </style>

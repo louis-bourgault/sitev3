@@ -33,14 +33,14 @@ import GithubIcon from "../components/github.astro";
         <Project
           name="ferretboard"
           description="A project for Hack Club Macondo, making a simple RP2040 game console with a screen and custom PCB"
-          imageURL="https://github.com/louis-bourgault/macondo-games/raw/main/img/fusion-with-parts.png"
+          imageURL="https://cdn.hackclub.com/019e7801-46d1-7f5f-9918-96e331bf3d2e/Screenshot%202026-05-17%20at%2016.31.14.png"
           imageAlt="The case design in Fusion 360"
           link="https://github.com/louis-bourgault/macondo-games"
         />
         <Project
           name="Keyboard"
           description="split mechanical wireless keyboard, made for Hack Club Blueprint"
-          imageURL="https://github.com/louis-bourgault/keyboard/raw/main/img/render.png"
+          imageURL="https://cdn.hackclub.com/019e7802-d57d-745f-a197-6bdbca964c8f/keyboardrender.png"
           imageAlt="Render of the project"
           link="https://github.com/louis-bourgault/keyboard"
         />
@@ -52,21 +52,31 @@ import GithubIcon from "../components/github.astro";
           link="https://github.com/louis-bourgault/photo-map"
         />
       </div>
+      <br>
       <h2>Languages and frameworks:</h2>
       <div class="langs">
         <Language
           name="Golang"
-          image="https://www.madebymikal.com/wp-content/uploads/2018/04/golang.png"
+          image="/golang.png"
         />
         <Language
           name="Svelte/kit"
-          image="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/1280px-Svelte_Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"
+          image="/svelte.png"
         />
-        <Language name="Astro (this website!)" image="/astro.svg" />
+        <Language name="Astro (this website!)" image="/astro.png" />
       </div>
     </section>
+    <br>
     <section title="photos">
-      <h2>Photography!</h2>
+      <div class="apart">
+
+        <h2>Photography!</h2>
+        <div class="rightbuttoncontainer">
+          <a href="/photography">
+            <button id="morephotos">More Photography</button>
+          </a>
+        </div>
+      </div>
       <div class="top-photos">
         {
           Photos.top.map((photo, index) => (
@@ -74,11 +84,7 @@ import GithubIcon from "../components/github.astro";
           ))
         }
       </div>
-      <div class="rightbuttoncontainer">
-        <a href="/photography">
-          <button id="morephotos">More Photography</button>
-        </a>
-      </div>
+      
     </section>
   </div>
 
@@ -100,6 +106,12 @@ import GithubIcon from "../components/github.astro";
   .rightbuttoncontainer {
     display: flex;
     justify-items: right;
+  }
+
+  .apart {
+    display: flex;
+    justify-content: space-between;
+
   }
 
   button {

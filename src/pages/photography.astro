@@ -10,6 +10,7 @@ import Photos from "../photos.json";
 <Layout>
   <div class="maincol">
     <h1>Photography Portfolio</h1>
+    <p>Click on a photo to view it larger!</p>
     <br />
     <div class="photos">
       {
@@ -148,9 +149,9 @@ import Photos from "../photos.json";
     max-height: 100%;
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 920px) {
     .photos {
-      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
     }
   }
 </style>

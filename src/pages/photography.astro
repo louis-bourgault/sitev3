@@ -14,7 +14,13 @@ import Photos from "../photos.json";
     <div class="photos">
       {
         Photos.all.map((photo, index) => (
-          <img src={photo.thumbnail} loading="lazy" class="galleryImg" id={`photo-${index}`} data-fullUrl={photo.high_res}/>
+          <img
+            src={photo.thumbnail}
+            loading="lazy"
+            class="galleryImg"
+            id={`photo-${index}`}
+            data-fullUrl={photo.high_res}
+          />
         ))
       }
     </div>
@@ -27,7 +33,7 @@ import Photos from "../photos.json";
 <div class="" id="lightbox">
   <button id="close">Close</button>
   <p id="loading">Loading...</p>
-  <img id="lb-photo">
+  <img id="lb-photo" />
 </div>
 
 <script>
@@ -36,36 +42,45 @@ import Photos from "../photos.json";
   const lightbox = document.getElementById("lightbox");
   const closeButton = document.getElementById("close");
   const lbImg = document.getElementById("lb-photo");
-  const loading = document.getElementById('loading')
-
+  const loading = document.getElementById("loading");
 
   const galleryImages = document.querySelectorAll(".gallery-img");
   console.log("initialised event listener");
 
   document.addEventListener("mousedown", (e) => {
-    let target = e.target
-    const fullURL = e.target?.getAttribute("data-fullURL")
-    console.log(fullURL)
-    if(fullURL && fullURL != "") {
-      lightbox?.classList.add("lb-visible")
-      lbImg?.setAttribute("src", fullURL)
-      loading?.classList.add('loading')
-      
+    let target = e.target;
+    const fullURL = e.target?.getAttribute("data-fullURL");
+    console.log(fullURL);
+    if (fullURL && fullURL != "") {
+      openLightbox(fullURL);
     }
   });
 
-  lbImg?.addEventListener('load', () => {
-    console.log('loaded!')
-    loading?.classList.remove("loading")
+  // lbImg?.addEventListener("load", () => {
+  //   console.log("loaded!");
+  //   loading?.classList.remove("loading");
+  // });
 
-  })
+  function openLightbox(fullURL: string) {
+    loading?.classList.add("loading");
+    lightbox?.classList.add("lb-visible");
 
+    const loadImage = new Image();
+    loadImage.src = fullURL;
 
+    loadImage.onload = () => {
+      lbImg?.setAttribute("src", fullURL);
+      loading?.classList.remove("loading");
+    };
+    loadImage.onerror = () => {
+      loading?.classList.remove("loading");
+    };
+  }
 
   closeButton?.addEventListener("mousedown", () => {
-    lightbox?.classList.remove('lb-visible')
-    lbImg?.removeAttribute("src")
-  })
+    lightbox?.classList.remove("lb-visible");
+    lbImg?.removeAttribute("src");
+  });
 </script>
 
 <style>
@@ -90,39 +105,37 @@ import Photos from "../photos.json";
 
   #loading {
     display: none;
-    position:fixed;
-    top:50%;
-    right:50%;
-    color:white
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    color: white;
   }
   .loading {
-    display:contents !important;
+    display: contents !important;
   }
 
-
-
   #lightbox {
-    position:fixed;
-    top:0;
-    left:0;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     display: none;
     align-items: center;
-    background: rgba(0, 0, 0, 0.9); 
+    background: rgba(0, 0, 0, 0.9);
     justify-items: center;
-    justify-content: center; 
+    justify-content: center;
     /* why are there so many justify classes????? */
   }
 
   #close {
-    position:fixed;
-    right:5px;
-    top:5px;
-    padding:1rem;
+    position: fixed;
+    right: 5px;
+    top: 5px;
+    padding: 1rem;
     background-color: black;
-    color:white;
-    border:none;
+    color: white;
+    border: none;
     border-radius: 0.5rem;
   }
 
@@ -130,18 +143,10 @@ import Photos from "../photos.json";
     display: flex !important;
   }
 
-  #lb-photo{
+  #lb-photo {
     max-width: 100%;
     max-height: 100%;
-    
   }
-
-  
-
-
-  
-
-  
 
   @media (min-width: 900px) {
     .photos {

@@ -5,6 +5,9 @@ import Language from "../components/language.astro";
 import Photos from "../photos.json";
 import GithubIcon from "../components/github.astro";
 ---
+<head>
+  <title>Louis Bourgault du Coudray</title>
+</head>
 
 <Layout>
   <br class="top" />
@@ -66,8 +69,8 @@ import GithubIcon from "../components/github.astro";
       <h2>Photography!</h2>
       <div class="top-photos">
         {
-          Photos.top.map((url, index) => (
-            <img src={url} alt={`Top photo ${index + 1}`} loading="lazy" />
+          Photos.top.map((photo, index) => (
+            <img src={photo.thumbnail} loading="lazy" />
           ))
         }
       </div>

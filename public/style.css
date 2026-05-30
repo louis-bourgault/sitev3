@@ -3,6 +3,7 @@ body {
     padding: 0;
     background-color: #eee9da;
     font-family: "PT Serif", serif;
+    overflow-y: auto;
 }
 
 .maincol {

@@ -1,44 +1,43 @@
 ---
-    const {name, description, link, imageURL, imageAlt} = Astro.props
+const { name, description, link, imageURL, imageAlt } = Astro.props;
 ---
 
 <div class="project-tile">
-    <h3>{name}</h3>
-    <div>
+  <h3>{name}</h3>
+  <div>
+    <img src={imageURL} alt={imageAlt} />
+  </div>
+  <p>{description}</p>
 
-        <img src={imageURL} alt={imageAlt}>
-    </div>
-    <p>{description}</p>
-    
-    <a href={link} target="_blank"> → Go to Project</a>
+  <a href={link} target="_blank">Go to Project</a>
+  <br />
 </div>
 
 <style>
-    .project-tile {
-        padding-left:1rem;
-        padding-right: 1rem;
-        padding-bottom: 1rem;
-        border: 2px solid #cbc09e;
-        /* height: 20rem; */
-        border-radius: 0.5rem;
-    }
+  .project-tile {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    border: 2px solid #cbc09e;
+    /* height: 20rem; */
+    border-radius: 0.5rem;
+  }
 
-    h3 {
-        color: #6a546d;
-        font-size: x-large;
+  h3 {
+    color: #6a546d;
+    font-size: x-large;
+  }
 
-    }
-    
-    a {
-        color: #6a546d;
-        text-decoration: none;
-    }
+  a {
+    color: #6a546d;
+    text-decoration: none;
+  }
 
-    img {
-        height: 10rem;
-        width: 100%;
-        object-fit: cover;
-        object-position: center;
-        border-radius: 0.5rem;
-    }
+  img {
+    height: 10rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.5rem;
+  }
 </style>
